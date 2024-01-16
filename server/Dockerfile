@@ -11,7 +11,7 @@ WORKDIR /app
 COPY --from=bufbuild /app .
 # Copy the rest of the Go source code
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o server server/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o grpc-server server/main.go
 
 # Final stage: Create the runtime image
 FROM alpine:latest
@@ -20,4 +20,4 @@ WORKDIR /root/
 # Copy the compiled binary from the second stage
 COPY --from=gobuild /app/server .
 EXPOSE 50051
-CMD ["./server"]
+CMD ["./grpc-server"]
