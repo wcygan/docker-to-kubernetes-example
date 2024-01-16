@@ -27,4 +27,5 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
+          file: ./server/Dockerfile
           tags: wcygan/docker-to-kubernetes-example-server:latest
