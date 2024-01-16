@@ -42,3 +42,11 @@ $ grpcurl -plaintext -proto proto/ping/v1/ping.proto -d '{"message": "Hello"}' l
   "message": "Pong"
 }
 ```
+
+## Build the Docker image for the Server
+
+Run this in the root directory of this project:
+
+```
+docker build -t server -f server/Dockerfile .
+```
