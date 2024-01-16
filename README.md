@@ -87,3 +87,43 @@ Run this in the root directory of this project:
 ```
 docker build -t server -f server/Dockerfile .
 ```
+
+## Deploy the Server to Kubernetes
+
+Run this in the root directory of this project:
+
+```
+./scripts/deploy.sh
+```
+
+## Undeploy the Server from Kubernetes
+
+Run this in the root directory of this project:
+
+```
+./scripts/undeploy.sh
+```
+
+## Check the deployment
+
+Run this in the root directory of this project:
+
+```
+kubectl get deployments
+```
+
+## Testing in Kubernetes
+
+Once the server is deployed, you can test it using the client.
+
+First, we need to port forward the server:
+
+```
+./scripts/port-forward.sh
+```
+
+Then, in another terminal window, we can run the client:
+
+```
+go run client/main.go localhost:50051
+```
