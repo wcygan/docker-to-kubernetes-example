@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"log"
+	"os"
 	"time"
 
 	pb "github.com/wcygan/docker-to-kubernetes-example/generated/go/ping/v1"
@@ -10,8 +11,14 @@ import (
 )
 
 func main() {
+	// Check if an address argument is provided
+	if len(os.Args) < 2 {
+		log.Fatalf("Usage: %s <server address>", os.Args[0])
+	}
+	address := os.Args[1]
+
 	// Set up a connection to the server.
-	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}

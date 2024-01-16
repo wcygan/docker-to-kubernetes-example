@@ -36,7 +36,7 @@ Run the following command:
 $ buf generate proto
 ```
 
-## Starting the Server
+## Starting the Server using Go
 
 Run the following command:
 
@@ -44,9 +44,31 @@ Run the following command:
 $ go run go-server/main.go
 ```
 
-## Testing with grpcurl
+## Starting the Server using Docker
 
-You can use [grpcurl](https://github.com/fullstorydev/grpcurl) to test the server:
+First, pull the Docker image:
+
+```
+$ docker pull wcygan/docker-to-kubernetes-example-server
+```
+
+Then, run the Docker image:
+
+```
+$ docker run -p 50051:50051 wcygan/docker-to-kubernetes-example-server
+```
+
+## Starting the Client
+
+You can use the Go client to test the server:
+
+```
+$ go run client/main.go localhost:50051
+```
+
+## Using grpcurl to test the Server
+
+Alternatively, you can use [grpcurl](https://github.com/fullstorydev/grpcurl) to test the server:
 
 ```
 $ grpcurl -plaintext -proto proto/ping/v1/ping.proto -d '{"message": "Hello"}' localhost:50051 ping.v1.PingService/Ping
@@ -55,6 +77,8 @@ $ grpcurl -plaintext -proto proto/ping/v1/ping.proto -d '{"message": "Hello"}' l
   "message": "Pong"
 }
 ```
+
+This command requires you to specify the proto file. 
 
 ## Build the Docker image for the Server
 
