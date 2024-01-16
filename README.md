@@ -2,6 +2,8 @@
 
 This example shows how to deploy Docker images to Kubernetes.
 
+The Server's Dockerfile is uploaded at [wcygan/docker-to-kubernetes-example-server](https://hub.docker.com/r/wcygan/docker-to-kubernetes-example-server) on Docker Hub via GitHub Actions defined in [publish-docker-image.yml](.github/workflows/publish-docker-image.yml).
+
 ### Prerequisites
 
 Install the following tools:
