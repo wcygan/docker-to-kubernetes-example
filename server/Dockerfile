@@ -18,6 +18,6 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 # Copy the compiled binary from the second stage
-COPY --from=gobuild /app/server .
+COPY --from=gobuild /app/grpc-server .
 EXPOSE 50051
 CMD ["./grpc-server"]
