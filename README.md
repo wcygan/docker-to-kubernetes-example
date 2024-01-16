@@ -23,7 +23,7 @@ Install the following tools:
 This project uses two patterns that I've defined in other repositories, namely:
 
 1. [Sharing Proto schemas across projects in a monorepo](https://github.com/wcygan/buf-polyglot-example)
-2. [Building Docker images and pushing them to Docker Hub using GitHub Actions](https://github.com/wcygan/github-actions-to-docker-registry.)
+2. [Building Docker images and pushing them to Docker Hub using GitHub Actions](https://github.com/wcygan/github-actions-to-docker-registry)
 
 If you care about how these work, you can go see the repositories for more information. I won't explain the mechanics of
 these patterns in this example.
