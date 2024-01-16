@@ -2,7 +2,7 @@
 FROM bufbuild/buf:latest as bufbuild
 WORKDIR /app
 COPY . .
-RUN buf generate
+RUN buf generate proto
 
 # Second stage: Build the Go binary
 FROM golang:1.21 as gobuild
