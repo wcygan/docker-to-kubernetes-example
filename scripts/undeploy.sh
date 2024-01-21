@@ -12,3 +12,5 @@ fi
 echo "Deploying the application..."
 kubectl delete -f server/deployment.yaml
 kubectl delete -f server/service.yaml
+kubectl delete -f storage/redis-deployment.yaml
+kubectl delete -f storage/redis-service.yaml

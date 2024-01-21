@@ -12,3 +12,5 @@ fi
 echo "Deploying the application..."
 kubectl apply -f server/deployment.yaml
 kubectl apply -f server/service.yaml
+kubectl apply -f storage/redis-deployment.yaml
+kubectl apply -f storage/redis-service.yaml
