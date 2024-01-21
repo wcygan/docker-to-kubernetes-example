@@ -6,7 +6,7 @@
 tilt up
 ```
 
-This command is captured in [local-deploy.sh](../scripts/local-deploy.sh).
+This command is captured in [tilt.sh](../scripts/tilt.sh).
 
 ## Port Forwarding
 
