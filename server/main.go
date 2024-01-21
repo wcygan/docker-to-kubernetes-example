@@ -2,10 +2,11 @@
 package main
 
 import (
+	kvv1 "github.com/wcygan/docker-to-kubernetes-example/generated/go/kv/v1"
 	"log"
 	"net"
 
-	pb "github.com/wcygan/docker-to-kubernetes-example/generated/go/ping/v1"
+	"github.com/wcygan/docker-to-kubernetes-example/generated/go/ping/v1"
 	"github.com/wcygan/docker-to-kubernetes-example/server/internal"
 	"google.golang.org/grpc"
 )
@@ -29,5 +30,6 @@ func main() {
 }
 
 func registerServer(s *grpc.Server) {
-	pb.RegisterPingServiceServer(s, &internal.PingService{})
+	pingv1.RegisterPingServiceServer(s, &internal.PingService{})
+	kvv1.RegisterKeyValueServiceServer(s, &internal.KeyValueService{})
 }
