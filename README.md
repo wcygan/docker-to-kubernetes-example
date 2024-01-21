@@ -55,7 +55,7 @@ $ docker pull wcygan/docker-to-kubernetes-example-server
 Then, run the Docker image:
 
 ```
-$ docker run -p 50051:50051 wcygan/docker-to-kubernetes-example-server
+$ docker run -p 8080:8080 wcygan/docker-to-kubernetes-example-server
 ```
 
 ## Starting the Client
@@ -63,7 +63,7 @@ $ docker run -p 50051:50051 wcygan/docker-to-kubernetes-example-server
 You can use the Go client to test the server:
 
 ```
-$ go run client/main.go localhost:50051
+$ go run client/main.go localhost:8080
 ```
 
 ## Using grpcurl to test the Server
@@ -71,7 +71,7 @@ $ go run client/main.go localhost:50051
 Alternatively, you can use [grpcurl](https://github.com/fullstorydev/grpcurl) to test the server:
 
 ```
-$ grpcurl -plaintext -proto proto/ping/v1/ping.proto -d '{"message": "Hello"}' localhost:50051 ping.v1.PingService/Ping
+$ grpcurl -plaintext -proto proto/ping/v1/ping.proto -d '{"message": "Hello"}' localhost:8080 ping.v1.PingService/Ping
 
 {
   "message": "Pong"
@@ -125,5 +125,5 @@ First, we need to port forward the server:
 Then, in another terminal window, we can run the client:
 
 ```
-go run client/main.go localhost:50051
+go run client/main.go localhost:8080
 ```

@@ -16,4 +16,4 @@ spec:
         - name: grpc-server
           image: wcygan/docker-to-kubernetes-example-server:latest
           ports:
-            - containerPort: 50051
+            - containerPort: 8080

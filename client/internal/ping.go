@@ -21,7 +21,7 @@ var port int
 
 func init() {
 	PingCmd.Flags().StringVarP(&ip, "ip", "i", "localhost", "IP address of the gRPC server")
-	PingCmd.Flags().IntVarP(&port, "port", "p", 50051, "Port of the gRPC server")
+	PingCmd.Flags().IntVarP(&port, "port", "p", 8080, "Port of the gRPC server")
 	rootCmd.AddCommand(PingCmd)
 }
 
