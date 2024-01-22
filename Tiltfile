@@ -1,7 +1,7 @@
 load('ext://restart_process', 'docker_build_with_restart')
 
 # Compile command for the Go application
-compile_cmd = 'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o grpc-server server/main.go'
+compile_cmd = 'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/grpc-server server/main.go'
 
 # Compile command for the protobuf files
 proto_compile_cmd = 'buf generate'
@@ -25,7 +25,7 @@ docker_build_with_restart(
     'wcygan/docker-to-kubernetes-example-server',
     '.',
     dockerfile='server/Dockerfile',
-    entrypoint='/app/grpc-server',
+    entrypoint='/app/build/grpc-server',
     ignore=['./client'],
     live_update=[
         sync('./', '/app'),
