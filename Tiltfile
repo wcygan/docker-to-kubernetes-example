@@ -33,6 +33,6 @@ docker_build_with_restart(
 )
 
 # Kubernetes resources
-k8s_yaml(['server/Deployment.yaml', 'server/service.yaml', 'storage/redis-deployment.yaml'])
+k8s_yaml(['server/Deployment.yaml', 'server/service.yaml', 'storage/redis-deployment.yaml', 'storage/redis-service.yaml'])
 k8s_resource('redis-deployment', new_name='redis')
 k8s_resource('grpc-server', port_forwards=8080, resource_deps=['redis'])

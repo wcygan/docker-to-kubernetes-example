@@ -13,9 +13,9 @@ type RedisClient struct {
 
 func NewRedisClient() *RedisClient {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "redis-deployment:6379", // replace with your Redis server address
-		Password: "",                      // replace with your password if any
-		DB:       0,                       // use default DB
+		Addr:     "redis-service:6379",
+		Password: "",
+		DB:       0,
 	})
 
 	return &RedisClient{Client: rdb}
