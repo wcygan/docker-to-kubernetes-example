@@ -16,8 +16,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o grpc-server server/main.go
 # Final stage: Create the runtime image
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
-WORKDIR /root/
+WORKDIR /app
 # Copy the compiled binary from the second stage
 COPY --from=gobuild /app/grpc-server .
-EXPOSE 50051
+EXPOSE 8080
 CMD ["./grpc-server"]

@@ -9,7 +9,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "client",
-	Short: "A brief description of your application",
+	Short: "A client for docker-to-kubernetes-example",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

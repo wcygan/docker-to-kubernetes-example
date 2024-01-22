@@ -9,5 +9,6 @@ if [ "$current_directory" != "docker-to-kubernetes-example" ]; then
     exit 1
 fi
 
-echo "Cleaning generated files from protobuf..."
+echo "Cleaning generated files"
 rm -rf generated
+rm -rf build

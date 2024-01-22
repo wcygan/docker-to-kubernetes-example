@@ -21,17 +21,11 @@ var port int
 
 func init() {
 	PingCmd.Flags().StringVarP(&ip, "ip", "i", "localhost", "IP address of the gRPC server")
-	PingCmd.Flags().IntVarP(&port, "port", "p", 50051, "Port of the gRPC server")
-	rootCmd.AddCommand(PingCmd)
+	PingCmd.Flags().IntVarP(&port, "port", "p", 8080, "Port of the gRPC server")
 }
 
 func runPing(cmd *cobra.Command, args []string) error {
 	address := fmt.Sprintf("%s:%d", ip, port)
-
-	_, err := fmt.Println("Connecting to server at: ", address)
-	if err != nil {
-		log.Fatalf("could not print: %v", err)
-	}
 
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())

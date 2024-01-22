@@ -4,4 +4,4 @@
 POD_NAME=$(kubectl get pods --selector=app=grpc-server -o jsonpath="{.items[0].metadata.name}")
 
 # Set up port forwarding for your gRPC server
-kubectl port-forward $POD_NAME 50051:50051
+kubectl port-forward $POD_NAME 8080:8080
