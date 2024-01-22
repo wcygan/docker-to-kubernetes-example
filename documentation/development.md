@@ -1,5 +1,10 @@
 # Local Development
 
+I run [minikube](https://minikube.sigs.k8s.io/docs/start/) on my laptop for local development. Combined
+with [Tilt](https://tilt.dev/), this makes it easy to develop and test changes to the application.
+
+## Running the Application
+
 [Tilt](https://tilt.dev/) is used for local development and testing.
 
 ```bash

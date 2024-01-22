@@ -1,5 +1,7 @@
 # Production Deployment
 
+I run [k3s](https://k3s.io/) in my homelab. 
+
 The application is deployed on Kubernetes using images from Docker Hub.
 
 For an example of how to automatically push images to Docker Hub,
