@@ -20,6 +20,8 @@ k3s.yaml  minikube.yaml
 
 ### Switching between clusters
 
+Here's how I use [kubectx](https://github.com/ahmetb/kubectx) to switch between clusters...
+
 Switch to the `k3s` cluster:
 
 ```

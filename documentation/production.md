@@ -9,7 +9,7 @@ see [building Docker images and pushing them to Docker Hub using GitHub Actions]
 
 ## Deploy
 
-Deploy the application to your target environment by running this in the root directory of this project:
+Deploy the application to your target environment by running [deploy.sh](../scripts/deploy.sh) in the root directory of this project:
 
 ```
 ./scripts/deploy.sh
@@ -17,7 +17,7 @@ Deploy the application to your target environment by running this in the root di
 
 ## Undeploy
 
-Undeploy the application from your target environment by running this in the root directory of this project:
+Undeploy the application from your target environment by running [undeploy.sh](../scripts/undeploy.sh) in the root directory of this project:
 
 ```
 ./scripts/undeploy.sh
@@ -29,7 +29,7 @@ When deploying to your target environment, you can
 use [kubectl port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/#forward-a-local-port-to-a-port-on-the-pod)
 to access the cluster from your local machine. This repository has a script, [port-forward.sh](../scripts/port-forward.sh), which captures how to expose `grpc-server` on port `8080` locally.
 
-Run this script to enable port forwarding:
+Run [port-forward.sh](../scripts/port-forward.sh) to enable port forwarding:
 
 ```
 ./scripts/port-forward.sh
