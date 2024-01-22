@@ -11,12 +11,6 @@ This is similar to having a [development](development.md) and [production](produ
 
 [kubectx](https://github.com/ahmetb/kubectx) is a tool that makes it easy to switch between clusters.
 
-After setting up my clusters, I've added their kubeconfig files to the `~/.kube/configs` directory:
-
-```
-ls ~/.kube/configs
-k3s.yaml  minikube.yaml
-```
 
 ### Switching between clusters
 
@@ -51,4 +45,12 @@ After specifying the correct cluster, I can manage the deployment using various 
 
 I'm not entirely sure how it's working yet because I haven't changed my `~/.kube/config` file, I've only added new files
 to the `~/.kube/configs` directory. Yet, `kubectx` is able to switch between them; there has to be something I'm
-missing...
+missing... (EDIT: Yes, I see that when I installed `minikube`, it seemed to merge my configs into `~/.kube/config`)
+
+
+After setting up my clusters, I've added their kubeconfig files to the `~/.kube/configs` directory just in case:
+
+```
+ls ~/.kube/configs
+k3s.yaml  minikube.yaml
+```
