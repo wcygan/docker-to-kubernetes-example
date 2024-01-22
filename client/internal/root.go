@@ -1,27 +1,47 @@
 package internal
 
 import (
+	"fmt"
+	"log"
 	"os"
 
 	"github.com/spf13/cobra"
+	"google.golang.org/grpc"
+
+	pb "github.com/wcygan/docker-to-kubernetes-example/generated/go/kv/v1"
 )
 
-// rootCmd represents the base command when called without any subcommands
+var ip string
+var port int
+var conn *grpc.ClientConn
+var client pb.KeyValueServiceClient
+
+func init() {
+	rootCmd.PersistentFlags().StringVarP(&ip, "ip", "i", "localhost", "IP address of the gRPC server")
+	rootCmd.PersistentFlags().IntVarP(&port, "port", "p", 8080, "Port of the gRPC server")
+	rootCmd.AddCommand(pingCmd)
+	rootCmd.AddCommand(putCmd)
+	rootCmd.AddCommand(getCmd)
+}
+
 var rootCmd = &cobra.Command{
 	Use:   "client",
 	Short: "A client for docker-to-kubernetes-example",
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		var err error
+		conn, err = grpc.Dial(fmt.Sprintf("%s:%d", ip, port), grpc.WithInsecure(), grpc.WithBlock())
+		if err != nil {
+			log.Fatalf("did not connect: %v", err)
+		}
+		client = pb.NewKeyValueServiceClient(conn)
+	},
+	PersistentPostRun: func(cmd *cobra.Command, args []string) {
+		conn.Close()
+	},
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	err := rootCmd.Execute()
-	if err != nil {
+	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
-}
-
-func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	rootCmd.AddCommand(PingCmd)
 }

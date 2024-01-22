@@ -51,3 +51,4 @@ Response: Pong
 - [Production](documentation/production.md)
 - [Testing](documentation/testing.md)
 - [Proto](documentation/proto.md)
+- [Continuous Integration](documentation/ci.md)

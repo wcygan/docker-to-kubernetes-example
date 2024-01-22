@@ -10,18 +10,10 @@ import (
 	"time"
 )
 
-var PingCmd = &cobra.Command{
+var pingCmd = &cobra.Command{
 	Use:   "ping",
 	Short: "Ping the server",
 	RunE:  runPing,
-}
-
-var ip string
-var port int
-
-func init() {
-	PingCmd.Flags().StringVarP(&ip, "ip", "i", "localhost", "IP address of the gRPC server")
-	PingCmd.Flags().IntVarP(&port, "port", "p", 8080, "Port of the gRPC server")
 }
 
 func runPing(cmd *cobra.Command, args []string) error {

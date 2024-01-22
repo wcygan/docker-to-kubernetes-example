@@ -1,4 +1,4 @@
-package internal
+package kv
 
 import (
 	"context"
@@ -13,9 +13,9 @@ type RedisClient struct {
 
 func NewRedisClient() *RedisClient {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379", // replace with your Redis server address
-		Password: "",               // replace with your password if any
-		DB:       0,                // use default DB
+		Addr:     "redis-deployment:6379", // replace with your Redis server address
+		Password: "",                      // replace with your password if any
+		DB:       0,                       // use default DB
 	})
 
 	return &RedisClient{Client: rdb}

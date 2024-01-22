@@ -26,11 +26,13 @@ docker_build_with_restart(
     '.',
     dockerfile='server/Dockerfile',
     entrypoint='/app/grpc-server',
+    ignore=['./client'],
     live_update=[
         sync('./', '/app'),
-    ]
+    ],
 )
 
 # Kubernetes resources
-k8s_yaml(['server/Deployment.yaml', 'server/service.yaml'])
-k8s_resource('grpc-server', port_forwards=8080)
+k8s_yaml(['server/Deployment.yaml', 'server/service.yaml', 'storage/redis-deployment.yaml'])
+k8s_resource('redis-deployment', new_name='redis')
+k8s_resource('grpc-server', port_forwards=8080, resource_deps=['redis'])
