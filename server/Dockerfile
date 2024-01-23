@@ -6,12 +6,12 @@ RUN buf generate proto
 
 # Second stage: Build the Go binary
 FROM golang:1.21 as gobuild
-WORKDIR /app
+WORKDIR /app/server
 # Copy the generated files from the previous stage
 COPY --from=bufbuild /app .
 # Copy the rest of the Go source code
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o build/grpc-server server/main.go
+COPY . ..
+RUN CGO_ENABLED=0 GOOS=linux go build -o ../build/grpc-server .
 
 # Final stage: Create the runtime image
 FROM alpine:latest

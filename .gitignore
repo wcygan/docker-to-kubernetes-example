@@ -2,3 +2,4 @@
 generated
 build
 grpc-server
+**/.DS_Store
