@@ -1,7 +1,7 @@
 load('ext://restart_process', 'docker_build_with_restart')
 
 # Compile command for the Go application
-compile_cmd = 'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/grpc-server server/main.go'
+compile_cmd = 'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ../build/grpc-server .'
 
 # Compile command for the protobuf files
 proto_compile_cmd = 'buf generate'
@@ -11,6 +11,7 @@ local_resource(
   'compile',
   compile_cmd,
   deps=['./server', './generated'],
+  dir='./server'  # Set the working directory for the command
 )
 
 # Local resource to compile the protobuf files

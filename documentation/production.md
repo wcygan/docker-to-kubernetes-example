@@ -40,5 +40,5 @@ Run [port-forward.sh](../scripts/port-forward.sh) to enable port forwarding:
 After following [deploy](#deploy) and [port forwarding](#port-forwarding), we can run [the client](testing.md#go-client) in another terminal window:
 
 ```
-go run client/main.go ping --ip localhost --port 8080
+cd client && go run . ping --ip localhost --port 8080
 ```

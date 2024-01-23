@@ -11,7 +11,7 @@ After following [proto.md](proto.md) to generate Go code from the proto files, y
 the [Go client](../client/main.go) to test the server:
 
 ```
-go run client/main.go ping --ip localhost --port 8080
+cd client && go run . ping --ip localhost --port 8080
 ```
 
 ### grpcurl
@@ -26,7 +26,7 @@ grpcurl -plaintext -proto proto/ping/v1/ping.proto -d '{"message": "Hello"}' loc
 }
 ```
 
-This command requires you to specify the proto file.
+This command requires you to specify the proto file. It's codified in [ping.sh](../scripts/ping.sh).
 
 ## Port Forwarding
 
