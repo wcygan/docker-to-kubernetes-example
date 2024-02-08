@@ -32,3 +32,5 @@ jobs:
           push: true
           file: ./server/Dockerfile
           tags: wcygan/docker-to-kubernetes-example-server:latest
+          cache-from: type=registry,ref=wcygan/docker-to-kubernetes-example-server:latest
+          cache-to: type=inline
